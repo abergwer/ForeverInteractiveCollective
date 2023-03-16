@@ -1,7 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import * as dotenv from 'dotenv';
+
 import bodyParser from 'body-parser';
 import axios from 'axios';
+import connectDB from './mongodb/connect.js';
+dotenv.config();
+
 
 const app = express();
 
@@ -15,4 +20,16 @@ app.get('/', async (req, res) => {
   res.json('');
 });
 
-app.listen(4000, () => console.log("server is on port 4000"));
+app.post('/upload-photo');
+
+const startServer = async (port) => {
+  try {
+    await connectDB(process.env.MONGODB_URL);
+    app.listen(port, () => console.log('listening on port ' + port));
+  } catch (err) {
+    console.error(err);
+
+  }
+};
+
+startServer(4000);
