@@ -11,14 +11,12 @@ export class LoginComponent {
   constructor(private http: HttpClient){}
   name : string ;
   email : string;
-  age : number;
   password : string;
 
   signUp(){
     let obj = {
       name : this.name,
       email : this.email,
-      age : this.age,
       password : this.password
     }
     this.postData(obj);
