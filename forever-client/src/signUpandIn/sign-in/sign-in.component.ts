@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private router : Router){}
   email : string;
   password : string;
+  
 
   signIn(){
     let obj = {
@@ -20,6 +22,9 @@ export class SignInComponent {
   }
 
   postData(data: any){
-    return this.http.post('/api/signIn', data);
+    let temp =  this.http.post('/api/signIn', data);
+    if(temp){
+      this.router.navigate(['/']);
+    }
   }
 }
