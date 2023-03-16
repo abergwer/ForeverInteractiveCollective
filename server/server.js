@@ -47,6 +47,7 @@ app.post('/signup', async (req, res) => {
       lastName,
       password
     });
+    console.log('added user ' + user.id);
     res.send(user);
   } catch (e) {
     console.log(e);
@@ -55,19 +56,14 @@ app.post('/signup', async (req, res) => {
 });
 app.post('/signin', async (req, res) => {
 
-  // const { userName, password } = req.body;
-  // const user = await User.findOne({ userName, password });
-  // if (user) {
-  //   res.send('logined');
-  // } else {
-  //   res.send('no such user');
-  // }
-  try {
-    console.log('g');
-    const response = await axios.post('http://10.1.123.238:5000/ColorizePhoto/');
-    res.send({});
-  } catch (e) {
-    res.send({});
+  const { email, password } = req.body;
+  console.log(email, password);
+  const user = await User.findOne({ email, password });
+  console.log(user);
+  if (user) {
+    res.json('logined');
+  } else {
+    res.json('no such user');
   }
 });
 
