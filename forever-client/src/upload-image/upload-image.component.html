@@ -1,15 +1,30 @@
-<h1 style="text-align: center; color: white;">הוספת תמונה</h1>
-<mat-card style="align-items: center; box-shadow: 20px; margin-left: 35%; margin-right: 35%;">
-    <form style="display: contents;"> 
+<mat-card class="mat-card" style="align-items: center; box-shadow: 40px; margin-left: 25%; margin-right: 25%;">
+  <h1 style="text-align: center; color: white; -webkit-text-stroke: 1px gray;" >הוספת תמונה</h1>
+    <form #myForm="ngForm" style="display: contents;"> 
         <mat-form-field>
-            <input id="image" name="image" type="file" accept="image/png, image/jpeg" />
+          <input matInput type="text" placeholder="Name" name="name" id="name" [(ngModel)]="name" />
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput id="password" name="password" type="password" placeholder="Password" required>
-            <!-- [(ngModel)]="password" -->
+          <input matInput type="text" placeholder="Short Description" name="shortDescription" id="name" [(ngModel)]="shortDescription" />
         </mat-form-field>
-        <div class="mat-card__actions"> 
-            <button type="submit" mat-raised-button>Submit</button>
+
+        <mat-form-field>
+          <textarea name="fullDescription" matInput class="description" matInput placeholder="Full Description" [(ngModel)]="fullDescription"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Location" name="location" id="location" [(ngModel)]="location" required />
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea name="locationDescription" matInput placeholder="Description of the image location" [(ngModel)]="locationDescription"></textarea>
+        </mat-form-field>
+
+          <input class="input-file" style="size: xxl;" type="file" name="imagel" id="img" (change)="onFileSelected($event)" [(ngModel)]="imagel" />
+          <br/>
+        <div class="mat-card__actions">
+            <button type="submit" mat-raised-button (click)="onSubmit()">Submit</button>
         </div>
     </form>
 </mat-card>
