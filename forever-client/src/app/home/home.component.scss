@@ -8,3 +8,15 @@
 .icon:hover{
     fill: #f4a66c;
 }
+
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  #map {
+    max-width: 100%;
+    max-height: 100%;
+  }
