@@ -12,10 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from '../signUpandIn/sign-in/sign-in.component';
 import { SignUpComponent } from '../signUpandIn/sign-up/sign-up.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './home/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { WhoAreWeComponent } from './home/who-are-we/who-are-we.component';
 import { ImagesStatusComponent } from './home/images-status/images-status.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ImagesStatusComponent } from './home/images-status/images-status.compon
     WhoAreWeComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
@@ -36,7 +39,8 @@ import { ImagesStatusComponent } from './home/images-status/images-status.compon
     FormsModule,
     MatInputModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
