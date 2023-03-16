@@ -1,0 +1,15 @@
+<h1 style="text-align: center; color: white;">הוספת תמונה</h1>
+<mat-card style="align-items: center; box-shadow: 20px; margin-left: 35%; margin-right: 35%;">
+    <form style="display: contents;"> 
+        <mat-form-field>
+            <input id="image" name="image" type="file" accept="image/png, image/jpeg" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput id="password" name="password" type="password" placeholder="Password" required>
+            <!-- [(ngModel)]="password" -->
+        </mat-form-field>
+        <div class="mat-card__actions"> 
+            <button type="submit" mat-raised-button>Submit</button>
+        </div>
+    </form>
+</mat-card>
