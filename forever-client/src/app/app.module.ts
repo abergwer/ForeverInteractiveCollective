@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatCardModule } from '@angular/material/card';
@@ -16,8 +15,9 @@ import { NavbarComponent } from './home/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { WhoAreWeComponent } from './home/who-are-we/who-are-we.component';
 import { ImagesStatusComponent } from './home/images-status/images-status.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { StoryComponent } from './story/story.component';
+import { TrendingStoriesComponent } from './home/trending-stories/trending-stories.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +27,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     NavbarComponent,
     HomeComponent,
     ImagesStatusComponent,
-    WhoAreWeComponent
+    WhoAreWeComponent,
+    StoryComponent,
+    TrendingStoriesComponent
   ],
   imports: [
-    NgbModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,

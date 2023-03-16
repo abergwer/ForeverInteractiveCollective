@@ -1,0 +1,41 @@
+p {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+  }
+
+  .image-description{
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .button {
+    background-color: #f28d3b;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+  }
+
+  .button:hover {
+    background-color: #ffffff;
+    color: #f28d3b;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button:active {
+    transform: scale(0.95);
+  }
