@@ -12,12 +12,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from '../signUpandIn/sign-in/sign-in.component';
 import { SignUpComponent } from '../signUpandIn/sign-up/sign-up.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { WhoAreWeComponent } from './home/who-are-we/who-are-we.component';
+import { ImagesStatusComponent } from './home/images-status/images-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     SignUpComponent,
+    NavbarComponent,
+    HomeComponent,
+    ImagesStatusComponent,
+    WhoAreWeComponent
   ],
   imports: [
     BrowserModule,
