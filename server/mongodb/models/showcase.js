@@ -10,7 +10,7 @@ const Showcase = new mongoose.Schema({
   longDescription: String,
   location: String, // description of the location where the photo was taken,
   photoDate: Date,
-  uploadDate: { type: Date, required: true },
+  uploadDate: { type: Date, default: Date.now },
   peopleNames: {
     type: [ String ],
     required: true,

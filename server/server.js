@@ -7,7 +7,6 @@ import axios from 'axios';
 import connectDB from './mongodb/connect.js';
 import User from './mongodb/models/user.js';
 import Showcase from './mongodb/models/showcase.js';
-import mongoose from 'mongoose';
 import { v2 as cloudinary } from 'cloudinary';
 import multer from 'multer';
 
@@ -29,11 +28,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.get('/', async (req, res) => {
+app.get('/showcases/:areaId', async (req, res) => {
+  const { areaId } = req.params;
+  const showcases = await Showcase.find({ area: areaId });
+  res.send(showcases);
+});
 
-  // const { data } = await axios.get('http://localhost:5000/test');
-  // console.log(data);
-  res.send('');
+app.get('/showcases', async (req, res) => {
+  const showcases = await Showcase.find();
+  res.send(showcases);
 });
 
 
@@ -54,6 +57,7 @@ app.post('/signup', async (req, res) => {
     res.status(400).send('failed to create user');
   }
 });
+
 app.post('/signin', async (req, res) => {
 
   const { email, password } = req.body;
@@ -64,6 +68,26 @@ app.post('/signin', async (req, res) => {
     res.json('logined');
   } else {
     res.json('no such user');
+  }
+});
+
+app.post('/create-showcase', async (req, res) => {
+  const { user, area, originalPhoto, improvedPhoto, name } = req.body;
+  const users = await User.find({});
+  console.log(users[ 0 ]);
+  try {
+    const showcase = await Showcase.create({
+      user: users[ 0 ].id,
+      area,
+      originalPhoto,
+      improvedPhoto,
+      name,
+    });
+    res.json(showcase);
+    console.log(showcase);
+  } catch (e) {
+    console.log(e);
+    res.status(400).json('failed to create showcase');
   }
 });
 
@@ -78,6 +102,16 @@ app.post('/upload-photo', upload.single('image'), async (req, res) => {
   }
 });
 
+
+const improvePhoto = async (photo) => {
+  return await axios.post('http://localhost:5000/improve-photo', photo);
+};
+
+const uploadPhoto = async (photo) => {
+  const photoUrl = await cloudinary.uploader.upload(photo);
+  return photoUrl.url;
+};
+
 const startServer = async (port) => {
   try {
     await connectDB(process.env.MONGODB_URL);
@@ -86,12 +120,6 @@ const startServer = async (port) => {
     console.error(err);
 
   }
-};
-
-
-const uploadPhoto = async (photo) => {
-  const photoUrl = await cloudinary.uploader.upload(photo);
-  return photoUrl;
 };
 
 startServer(4000);
