@@ -1,1 +1,12 @@
-<p>trending-stories works!</p>
+<div class="d-flex flex-column" style="background-color: lightgrey;">
+    <p>
+    הסיפורים המובילים
+    </p>
+    <div class="d-flex justify-content-around ">
+        <div class="d-flex flex-column" *ngFor="let trendingMoStory of getTrendingStories()">
+                <img style="object-fit: contain; max-width: max-content;" src="{{trendingMoStory.imageSrc}}" />
+                <div class="image-description img-fluid">{{ trendingMoStory.desc }}</div>
+                <a style="width: 140px; text-decoration: none;"  class="button d-flex align-self-center text-center" [routerLink]="getStoryUrl(trendingMoStory)" [queryParams]="">לסיפור המלא</a>
+        </div>
+    </div>
+</div>

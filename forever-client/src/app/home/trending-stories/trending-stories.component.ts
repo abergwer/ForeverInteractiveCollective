@@ -12,4 +12,27 @@ export class TrendingStoriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getStoryUrl(trendingMoStory) {
+    return "/story/" + trendingMoStory.storyId;
+  }
+
+  getTrendingStories() {
+    return [
+      {
+        storyId: "1",
+        imageSrc: "../../assets/picture1.png",
+        desc: "קצין משמרות חותך את הזקן הרב מיידני, 1943"
+      },
+      {
+        storyId: "2",
+        imageSrc: "../../assets/picture1.png",
+        desc: "קצין משמרות חותך את הזקן הרב מיידני, 1943"
+      },
+      {
+        storyId: "3",
+        imageSrc: "../../assets/picture1.png",
+        desc: "קצין משמרות חותך את הזקן הרב מיידני, 1943"
+      }
+    ]
+  }
 }
