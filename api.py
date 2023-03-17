@@ -12,7 +12,6 @@ from flask_restful import Resource, Api
 from colrizeImage import ColorizeImage
 import sys
 import os
-import cv2
 import numpy as np
 
 
@@ -33,7 +32,7 @@ class Colorize(Resource):
             decoded_jpeg = base64.b64decode(encoded_jpeg)
             image = Image.open(BytesIO(decoded_jpeg))
             sharpened_image = image.filter(ImageFilter.SHARPEN)
-            sharpened_image.save(r"C:\Users\afeka\Desktop\New folder\colorization\imgs\img_to_colorize.jpg")
+            sharpened_image.save(r"C:\Users\kagan\Projects\GeneralProjects\hackaton2\colorization\imgs\img_to_colorize.jpg")
             
             #sharpened_image = Image.fromarray(upsampled_array)
 
@@ -48,7 +47,7 @@ class Colorize(Resource):
             # Save the sharpened image
             #cv2.imwrite(r'C:\Users\afeka\Desktop\New folder\colorization\imgs\img_to_colorize.jpg', sharpened)
             colorizer.colorize_picture()
-            colorrized_pic = Image.open(r"C:\Users\afeka\Desktop\New folder\colorization\imgs_out\colorized_siggraph17.png")
+            colorrized_pic = Image.open(r"C:\Users\kagan\Projects\GeneralProjects\hackaton2\colorization\imgs_out\colorized_siggraph17.png")
             sharpened_image = colorrized_pic.filter(ImageFilter.SHARPEN)
             #decoded_jpeg = base64.b64decode(colorrized_pic)
             buffer = BytesIO()

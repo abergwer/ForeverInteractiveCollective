@@ -72,39 +72,61 @@ app.post('/signin', async (req, res) => {
 });
 
 app.post('/create-showcase', async (req, res) => {
-  const { user, area, originalPhoto, improvedPhoto, name } = req.body;
-  const users = await User.find({});
+  const { user, area, originalPhoto, name } = req.body;
+  const users = await User.find({}); // just for now until it is real user id
   console.log(users[ 0 ]);
+  const originalPhotoUrl = await uploadPhoto(originalPhoto);
   try {
+    const improvedPhoto = await improvePhoto(originalPhoto);
+    const improvedPhotoUrl = await uploadPhoto(improvedPhoto);
     const showcase = await Showcase.create({
       user: users[ 0 ].id,
       area,
-      originalPhoto,
-      improvedPhoto,
+      originalPhotoUrl,
+      improvedPhotoUrl,
       name,
     });
-    res.json(showcase);
     console.log(showcase);
+    res.json(showcase);
   } catch (e) {
     console.log(e);
     res.status(400).json('failed to create showcase');
   }
 });
 
-app.post('/upload-photo', upload.single('image'), async (req, res) => {
-  const image = req.file.path;
-  try {
-    const url = await uploadPhoto(image);
-    res.send(url);
+// app.post('/upload-photo', upload.single('image'), async (req, res) => {
+//   const image = req.file.path;
+//   try {
+//     const improvedPhoto = await improvePhoto(image);
+//     const url = await uploadPhoto(improvedPhoto);
+//     res.send(url);
 
+//   } catch (e) {
+//     res.send('error');
+//   }
+// });
+
+app.post('/upload-photo', async (req, res) => {
+  const { image } = req.body;
+  try {
+    await improvePhoto(image);
+    const url = await uploadPhoto("C:/Users/kagan/Projects/GeneralProjects/hackaton2/colorization/imgs_out/colorized_siggraph17.png");
+    res.send(url);
   } catch (e) {
+    console.log(e.error);
     res.send('error');
   }
 });
 
 
 const improvePhoto = async (photo) => {
-  return await axios.post('http://localhost:5000/improve-photo', photo);
+  try {
+    const res = await axios.post('http://127.0.0.1:5000/ColorizePhoto', { image: photo }, { headers: { 'Content-Type': 'application/json' } });
+    return res;
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
 };
 
 const uploadPhoto = async (photo) => {

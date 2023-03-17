@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Showcase = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  area: { type: String, required: true }, // id of the area
+  area: { type: String, required: true }, // name of the area
   originalPhoto: { type: String, required: true },
   improvedPhoto: { type: String, required: true },
   name: { type: String, required: true },
