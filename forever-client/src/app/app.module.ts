@@ -19,6 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { StoryComponent } from './story/story.component';
 import { TrendingStoriesComponent } from './home/trending-stories/trending-stories.component';
 import { TogetherComponent } from './home/together/together.component';
+import { MainScreenComponent } from './main-screen/main-screen.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TogetherComponent } from './home/together/together.component';
     WhoAreWeComponent,
     StoryComponent,
     TrendingStoriesComponent,
-    TogetherComponent
+    TogetherComponent,
+    MainScreenComponent
   ],
   imports: [
     BrowserModule,
