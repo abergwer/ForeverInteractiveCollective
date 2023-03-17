@@ -21,17 +21,17 @@ export class TrendingStoriesComponent implements OnInit {
       {
         storyId: "1",
         imageSrc: "../../assets/picture1.png",
-        desc: "קצין משמרות חותך את הזקן הרב מיידני, 1943"
+        desc: "קצין משמרות חותך את הזקן הרב מיידניק, 1943"
       },
       {
         storyId: "2",
         imageSrc: "../../assets/picture1.png",
-        desc: "קצין משמרות חותך את הזקן הרב מיידני, 1943"
+        desc: "קצין משמרות חותך את הזקן הרב מיידניק, 1943"
       },
       {
         storyId: "3",
         imageSrc: "../../assets/picture1.png",
-        desc: "קצין משמרות חותך את הזקן הרב מיידני, 1943"
+        desc: "קצין משמרות חותך את הזקן הרב מיידניק, 1943"
       }
     ]
   }

@@ -1,0 +1,11 @@
+<div class="image p-5 text-center bg-light" style="color: white;">
+    <h1 class="mb-3" >כולנו ביחד</h1>
+    <h4>המאגר נבנה בצורה שיתופית בעזרת מאות חברים המעוניינים להנציח את זכרון השואה</h4>
+    <div class="grid-container pt-4 gap-4">
+          <div class="column " *ngFor="let image of images">
+            <img [src]="image" alt="Image">
+          </div>
+      </div>   
+    <button class="join-btn px-4 my-5">
+        הצטרפות לקהילה</button>
+</div>

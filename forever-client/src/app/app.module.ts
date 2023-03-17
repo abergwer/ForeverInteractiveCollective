@@ -18,6 +18,7 @@ import { ImagesStatusComponent } from './home/images-status/images-status.compon
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { StoryComponent } from './story/story.component';
 import { TrendingStoriesComponent } from './home/trending-stories/trending-stories.component';
+import { TogetherComponent } from './home/together/together.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TrendingStoriesComponent } from './home/trending-stories/trending-stori
     ImagesStatusComponent,
     WhoAreWeComponent,
     StoryComponent,
-    TrendingStoriesComponent
+    TrendingStoriesComponent,
+    TogetherComponent
   ],
   imports: [
     BrowserModule,
