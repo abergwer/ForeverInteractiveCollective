@@ -1,0 +1,33 @@
+.example-card {
+    max-width: 400px;
+    height: 600px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://t3.ftcdn.net/jpg/04/30/83/98/360_F_430839841_VjSZI3WWS3Ump4wXaOX6KgDM2AXJzlRK.jpg');
+    background-size: cover;
+  }
+  
+  button {
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgb(144, 59, 14);
+  }
+  
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
