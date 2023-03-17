@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-grid-of-cards',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./grid-of-cards.component.scss']
 })
 export class GridOfCardsComponent {
+
+  constructor(private http : HttpClient){}
+
     products = [{title: 'polland', shortDescription: 'shortDescription', imageUrl : "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/96/223737085b4fca8d5b4a271504d75e/Holocaust_RedV1.jpg?auto=format%2Ccompress&dpr=1", description: 'description'},
     {title: 'polland', shortDescription: 'shortDescription', imageUrl : "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/96/223737085b4fca8d5b4a271504d75e/Holocaust_RedV1.jpg?auto=format%2Ccompress&dpr=1", description: 'description'},
     {title: 'polland', shortDescription: 'shortDescription', imageUrl : "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/96/223737085b4fca8d5b4a271504d75e/Holocaust_RedV1.jpg?auto=format%2Ccompress&dpr=1", description: 'description'},
