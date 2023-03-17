@@ -38,4 +38,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onMapClick(event: MouseEvent) {
+    const svgElement = event.target as SVGAElement;
+    const regionName = svgElement.getAttribute('name')
+    // TODO: route to showcases/regionName
+  }
 }
