@@ -10,3 +10,19 @@ p {
     margin-bottom: 4em;
   }
   
+  .upload-btn {
+      background-color: #ffffff;
+      color: #000000;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+    }
+  
+  .upload-btn:hover {
+    background-color: #f28d3b;
+  }
+  
